@@ -1,0 +1,18 @@
+kubectl -n lesson14 port-forward pod/static-web 8080:8080 #probros portov
+kubectl describe pod -n lesson14 #ports
+Давайте посмотрим логи компоненты etcd в неймспейсе kube-system, используйте команду: 
+
+kubectl logs -f -n kube-system etcd-minikube
+
+Просмотр yaml манифеста Пода
+
+Выполните команду kubectl get pods -n lesson14 static-web -o yaml
+
+Изменение Пода
+
+Под можно поменять "наживую", воспользуйтесь командой kubectl edit pod -n lesson14 static-web.
+
+
+Заходим в Shell-оболочку контейнера внутри Пода
+
+kubectl exec -it -n lesson14 pod/static-web -c web sh
